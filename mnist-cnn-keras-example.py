@@ -12,10 +12,11 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 from keras import backend as K
+import matplotlib.pyplot as plt
 
 batch_size = 128
 num_classes = 10
-epochs = 12
+epochs = 3
 
 # input image dimensions
 img_rows, img_cols = 28, 28
@@ -66,11 +67,12 @@ model.fit(x_train, y_train,
           verbose=1,
           validation_data=(x_test, y_test))
 score = model.evaluate(x_test, y_test, verbose=0)
+model.save('test-model.h5')
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 
-image_index = 4444
+# image_index = 4444
 
-plt.imshow(x_test[image_index].reshape(28, 28), cmap='Greys')
-pred = model.predict(x_test[image_index].reshape(1, img_rows, img_cols, 1))
-print(pred.argmax)
+# plt.imshow(x_test[image_index].reshape(28, 28), cmap='Greys')
+# pred = model.predict(x_test[image_index].reshape(1, img_rows, img_cols, 1))
+# print(pred.argmax)
