@@ -55,12 +55,12 @@ def single_img_test():
     trainX, testX = prep_pixels(trainX, testX)
     model = load_model('test-model.h5')
     
-    image_index = 1
+    image_index = 2
     pred = model.predict(testX[:4])
     print(pred[1])
     plt.imshow(testX[image_index].reshape(28,28), cmap='Greys')
     plt.show()
-    print(testY[1])
+    print(testY[2])
 # plt.imshow(x_test[image_index].reshape(28, 28), cmap='Greys')
 # pred = model.predict(x_test[image_index].reshape(1, img_rows, img_cols, 1))
 # print(pred.argmax)
